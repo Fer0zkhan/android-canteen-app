@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class Canteen_Dashboard extends AppCompatActivity {
 
-    Button add_item, view_item_d, edit_item_d, new_order_d, can_bal, cantran;
+    Button add_item, view_item_d, edit_item_d, new_order_d, can_bal, cantran, logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,47 +22,55 @@ public class Canteen_Dashboard extends AppCompatActivity {
         new_order_d = findViewById(R.id.new_order_d);
         can_bal = findViewById(R.id.canteen_add_bal_d);
         cantran = findViewById(R.id.canteen_transection);
+        logout = findViewById(R.id.canteen_logout);
 
 
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Canteen_Dashboard.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
         cantran.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Canteen_Dashboard.this,Canteen_Transaction.class);
+                Intent intent = new Intent(Canteen_Dashboard.this, Canteen_Transaction.class);
                 startActivity(intent);
             }
         });
         can_bal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Canteen_Dashboard.this,Canteen_add_balance.class);
+                Intent intent = new Intent(Canteen_Dashboard.this, Canteen_add_balance.class);
                 startActivity(intent);
             }
         });
         new_order_d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Canteen_Dashboard.this,New_Order_list.class);
+                Intent intent = new Intent(Canteen_Dashboard.this, New_Order_list.class);
                 startActivity(intent);
             }
         });
         edit_item_d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Canteen_Dashboard.this,Edit_Item.class);
+                Intent intent = new Intent(Canteen_Dashboard.this, Edit_Item.class);
                 startActivity(intent);
             }
         });
         view_item_d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Canteen_Dashboard.this,View_Item.class);
+                Intent intent = new Intent(Canteen_Dashboard.this, View_Item.class);
                 startActivity(intent);
             }
         });
         add_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Canteen_Dashboard.this,Add_Item.class);
+                Intent intent = new Intent(Canteen_Dashboard.this, Add_Item.class);
                 startActivity(intent);
             }
         });

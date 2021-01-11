@@ -14,18 +14,16 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class AddItemAdapter extends ArrayAdapter {
-    ArrayList item_id_list = new ArrayList();
-    ArrayList item_name_list = new ArrayList();
-    ArrayList item_des_list = new ArrayList();
-    ArrayList item_cost_list = new ArrayList();
-    ArrayList item_time_list = new ArrayList();
-    public AddItemAdapter(@NonNull Activity context, int resource,ArrayList item_id_list, ArrayList item_name_list, ArrayList item_des_list, ArrayList item_cost_list, ArrayList item_time_list) {
-        super(context, resource, item_name_list);
-        this.item_id_list = item_id_list;
-        this.item_name_list = item_name_list;
-        this.item_des_list = item_des_list;
-        this.item_cost_list = item_cost_list;
-        this.item_time_list = item_time_list;
+    //    ArrayList item_id_list = new ArrayList();
+//    ArrayList item_name_list = new ArrayList();
+//    ArrayList item_des_list = new ArrayList();
+//    ArrayList item_cost_list = new ArrayList();
+//    ArrayList item_time_list = new ArrayList();
+    ArrayList<Item> arrayList = new ArrayList<Item>();
+
+    public AddItemAdapter(@NonNull Activity context, int resource, ArrayList<Item> arrayList) {
+        super(context, resource, arrayList);
+        this.arrayList = arrayList;
     }
 
     @NonNull
@@ -38,17 +36,17 @@ public class AddItemAdapter extends ArrayAdapter {
 
         TextView i_id, i_name, i_des, i_cost, i_time;
 
-        i_id = (TextView)view.findViewById(R.id.item_list_id);
-        i_name = (TextView)view.findViewById(R.id.item_list_name);
-        i_des = (TextView)view.findViewById(R.id.item_list_des);
-        i_cost = (TextView)view.findViewById(R.id.item_list_cost);
-        i_time = (TextView)view.findViewById(R.id.item_list_time);
+        i_id = (TextView) view.findViewById(R.id.item_list_id);
+        i_name = (TextView) view.findViewById(R.id.item_list_name);
+        i_des = (TextView) view.findViewById(R.id.item_list_des);
+        i_cost = (TextView) view.findViewById(R.id.item_list_cost);
+        i_time = (TextView) view.findViewById(R.id.item_list_time);
 
-        i_id.setText(item_id_list.get(position).toString());
-        i_name.setText(item_name_list.get(position).toString());
-        i_des.setText(item_des_list.get(position).toString());
-        i_cost.setText(item_cost_list.get(position).toString());
-        i_time.setText(item_time_list.get(position).toString());
+        i_id.setText(arrayList.get(position).getItem_id_list());
+        i_name.setText(arrayList.get(position).getItem_name_list());
+        i_des.setText(arrayList.get(position).getItem_des_list());
+        i_cost.setText(arrayList.get(position).getItem_cost_list());
+        i_time.setText(arrayList.get(position).getItem_time_list());
 
         return view;
     }

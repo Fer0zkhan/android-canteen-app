@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Canteen_Automation_System">
-        <activity android:name=".Canteen_Transaction"></activity>
+        <activity android:name=".Student_Order_Item_select"></activity>
+        <activity android:name=".Student_add_balance" />
+        <activity android:name=".StuDent_Transaction_history" />
+        <activity android:name=".Student_View_Place_order" />
+        <activity android:name=".Student_DashBoard" />
+        <activity android:name=".Canteen_Transaction" />
         <activity android:name=".Canteen_add_balance" />
         <activity android:name=".New_Order_list" />
         <activity android:name=".Edit_Item" />
