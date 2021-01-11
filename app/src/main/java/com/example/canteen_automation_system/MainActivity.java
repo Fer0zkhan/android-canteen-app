@@ -37,5 +37,13 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+        student_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Student_DashBoard.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }
