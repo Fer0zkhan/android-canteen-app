@@ -14,13 +14,14 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class StudentAdapter extends ArrayAdapter {
-    ArrayList stu_id_tp = new ArrayList();
-    ArrayList stu_uni_id = new ArrayList();
-    public StudentAdapter(@NonNull Activity context, int resource, ArrayList stu_id, ArrayList stu_uni_id) {
-        super(context, resource, stu_uni_id);
+    ArrayList<Student> arrayList = new ArrayList<Student>();
+    Activity context;
 
-        this.stu_id_tp = stu_id;
-        this.stu_uni_id = stu_uni_id;
+    public StudentAdapter(@NonNull Activity context, int resource, ArrayList<Student> arrayList) {
+        super(context, resource, arrayList);
+
+        this.arrayList = arrayList;
+        this.context = context;
     }
 
     @NonNull
@@ -31,13 +32,15 @@ public class StudentAdapter extends ArrayAdapter {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.student_list_row, null);
 
-        TextView stu_id_t, stu_uni_id_t;
+        TextView stu_id_t, stu_uni_id_t, ss_bal;
 
-        stu_id_t = (TextView)view.findViewById(R.id.stu_list_id);
-        stu_uni_id_t = (TextView)view.findViewById(R.id.stu_list_uni_id);
+        stu_id_t = (TextView) view.findViewById(R.id.stu_list_id);
+        stu_uni_id_t = (TextView) view.findViewById(R.id.stu_list_uni_id);
+        ss_bal = (TextView) view.findViewById(R.id.stu_list_cost);
 
-        stu_id_t.setText(stu_id_tp.get(position).toString());
-        stu_uni_id_t.setText(stu_uni_id.get(position).toString());
+        stu_id_t.setText(arrayList.get(position).getId());
+        stu_uni_id_t.setText(arrayList.get(position).getStudent_id());
+        ss_bal.setText(arrayList.get(position).getStudent_balance());
 
         return view;
     }

@@ -17,43 +17,46 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Student_add_balance extends AppCompatActivity {
-    EditText acc, id, amount;
-    Button acc_btn;
-    String u_id;
+public class Student_login_page extends AppCompatActivity {
+    EditText stu_id, pass;
+    Button btn;
     DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_add_balance);
+        setContentView(R.layout.activity_student_login_page);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Student");
-        u_id = getIntent().getStringExtra("stu_l_u_id");
-        acc = findViewById(R.id.stu_acc_num);
-        id = findViewById(R.id.stu_add_id_acc);
-        amount = findViewById(R.id.stu_add_bal_acc);
+        stu_id = findViewById(R.id.student_email_auth);
+        pass = findViewById(R.id.student_pass_auth);
 
-        acc_btn = findViewById(R.id.stu_acc_btn);
+        btn = findViewById(R.id.student_login_btnnnn);
 
-        id.setText(u_id);
-        acc_btn.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot data : snapshot.getChildren()) {
+                            String student_id = stu_id.getText().toString().trim();
+                            String password = pass.getText().toString().trim();
                             Student student = data.getValue(Student.class);
-                            if (!TextUtils.isEmpty(acc.getText().toString().trim()) && !TextUtils.isEmpty(id.getText().toString().trim()) && !TextUtils.isEmpty(amount.getText().toString().trim())) {
-                                int pre_am = Integer.parseInt(student.student_balance);
-                                int add_am = Integer.parseInt(amount.getText().toString());
-                                int result = pre_am + add_am;
-                                databaseReference.child(u_id).child("student_balance").setValue(String.valueOf(result));
-                                Toast.makeText(Student_add_balance.this, "Add Amount Successfully", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Student_add_balance.this, Student_DashBoard.class));
+                            if (!TextUtils.isEmpty(student_id) && !TextUtils.isEmpty(password)) {
+                                if (student_id.equalsIgnoreCase(student.student_id) && password.equalsIgnoreCase(student.student_password)) {
+
+                                    Intent intent = new Intent(Student_login_page.this, Student_DashBoard.class);
+                                    intent.putExtra("stu_l_id", student.student_id);
+                                    intent.putExtra("stu_l_u_id", student.id);
+                                    startActivity(intent);
+                                    finish();
+
+                                } else {
+                                    Toast.makeText(Student_login_page.this, "Not Found Or Incorrect Password!", Toast.LENGTH_SHORT).show();
+                                }
                             } else {
-                                Toast.makeText(Student_add_balance.this, "Some Fields Are Missing!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Student_login_page.this, "Some Fields Are Missing!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }

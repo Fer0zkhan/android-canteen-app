@@ -2,34 +2,32 @@ package com.example.canteen_automation_system;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Order_listAdapter extends ArrayAdapter {
-    ArrayList order_id = new ArrayList();
-    ArrayList order_food_name = new ArrayList();
-    ArrayList order_canteen_name = new ArrayList();
-    ArrayList order_student_id = new ArrayList();
+    ArrayList<Order> arrayList = new ArrayList<Order>();
+    Activity content;
 
-    public Order_listAdapter(@NonNull Activity context, int resource, ArrayList order_id,
-                             ArrayList order_food_name,
-                             ArrayList order_canteen_name,
-                             ArrayList order_student_id) {
-        super(context, resource, order_food_name);
-
-        this.order_id = order_id;
-        this.order_food_name = order_food_name;
-        this.order_canteen_name = order_canteen_name;
-        this.order_student_id = order_student_id;
+    public Order_listAdapter(@NonNull Activity context, int resource, ArrayList<Order> arrayList) {
+        super(context, resource, arrayList);
+        this.arrayList = arrayList;
+        this.content = context;
     }
 
     @NonNull
@@ -40,17 +38,33 @@ public class Order_listAdapter extends ArrayAdapter {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.order_list_row, null);
 
-        TextView o_id, o_f_name, o_c_name, o_s_id, o_ready;
+        TextView o_id, o_f_name, o_c_name, o_s_id;
+        Button o_ready;
+        DatabaseReference databaseReference, orderDatabase;
+        databaseReference = FirebaseDatabase.getInstance().getReference("Transaction");
+        orderDatabase = FirebaseDatabase.getInstance().getReference("Order");
 
         o_id = (TextView) view.findViewById(R.id.order_list_id);
         o_f_name = (TextView) view.findViewById(R.id.order_list_food_name);
         o_c_name = (TextView) view.findViewById(R.id.order_list_canteen_name);
         o_s_id = (TextView) view.findViewById(R.id.order_list_student_id);
+        o_ready = (Button) view.findViewById(R.id.order_ready_btn);
 
-        o_id.setText(order_id.get(position).toString());
-        o_f_name.setText(order_food_name.get(position).toString());
-        o_c_name.setText(order_canteen_name.get(position).toString());
-        o_s_id.setText(order_student_id.get(position).toString());
+        o_id.setText(arrayList.get(position).getOrder_id());
+        o_f_name.setText(arrayList.get(position).getOrder_food_name());
+        o_c_name.setText(arrayList.get(position).getOrder_food_cost());
+        o_s_id.setText(arrayList.get(position).getOrder_student_id());
+
+        o_ready.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String id = databaseReference.push().getKey();
+                Transaction transaction = new Transaction(id, arrayList.get(position).order_id, arrayList.get(position).order_canteen_id, arrayList.get(position).order_canteen_name, arrayList.get(position).order_food_name, arrayList.get(position).order_food_cost, arrayList.get(position).order_student_unique_id);
+                databaseReference.child(id).setValue(transaction);
+                orderDatabase.child(arrayList.get(position).order_id).removeValue();
+                getContext().startActivity(new Intent(getContext(), Canteen_Dashboard.class));
+            }
+        });
 
         return view;
     }

@@ -31,7 +31,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName5"
+                android:id="@+id/w_s_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -40,10 +40,11 @@
                 android:hint="Serach Student By ID"
                 android:inputType="textPersonName"
                 android:padding="5dp"
-                android:textColor="@color/orange" />
+                android:textColor="@color/orange"
+                android:textColorHint="@color/orange" />
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/w_stu_search_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -53,7 +54,19 @@
                 android:textColor="@color/orange" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName7"
+                android:id="@+id/w_stu_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:fontFamily="casual"
+                android:hint="Student Id"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:textColor="@color/orange"
+                android:textColorHint="@color/orange" />
+            <EditText
+                android:id="@+id/w_stu_bal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -62,7 +75,8 @@
                 android:hint="Balance"
                 android:inputType="textPersonName"
                 android:padding="5dp"
-                android:textColor="@color/orange" />
+                android:textColor="@color/orange"
+                android:textColorHint="@color/orange" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -71,7 +85,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button10"
+                    android:id="@+id/w_stu_with_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -82,7 +96,7 @@
                     android:textColor="@color/orange" />
 
                 <Button
-                    android:id="@+id/button9"
+                    android:id="@+id/w_stu_add_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -93,68 +107,7 @@
                     android:textColor="@color/orange" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:fontFamily="casual"
-                android:padding="5dp"
-                android:text="Canteen Withdraw Balance"
-                android:textColor="@color/orange"
-                android:textSize="18sp"
-                android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/editTextTextPersonName6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:ems="10"
-                android:fontFamily="casual"
-                android:hint="Search Canteen By ID"
-                android:inputType="textPersonName"
-                android:padding="5dp"
-                android:textColor="@color/orange" />
-
-            <Button
-                android:id="@+id/button8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:fontFamily="casual"
-                android:padding="5dp"
-                android:text="Search"
-                android:textColor="@color/orange" />
-
-            <EditText
-                android:id="@+id/editTextTextPersonName8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:ems="10"
-                android:fontFamily="casual"
-                android:hint="Balance"
-                android:inputType="textPersonName"
-                android:padding="5dp"
-                android:textColor="@color/orange" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="casual"
-                    android:padding="5dp"
-                    android:text="WithDraw Balnce"
-                    android:textColor="@color/orange" />
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

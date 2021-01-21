@@ -17,20 +17,8 @@
         android:background="@color/purple_200"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/stu_list_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@color/black"
-            android:ems="10"
-            android:gravity="center"
-            android:inputType="textPersonName"
-            android:padding="5dp"
-            android:textColor="@color/orange" />
-
         <TextView
-            android:id="@+id/stu_list_uni_id"
+            android:id="@+id/stu_item_name_l"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -42,13 +30,60 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/stu_list_cost"
+            android:id="@+id/stu_item_list_dis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:fontFamily="casual"
             android:padding="2dp"
             android:text="TextView"
+            android:textColor="@color/orange"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/stu_item_cost_l"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:fontFamily="casual"
+            android:padding="2dp"
+            android:text="TextView"
+            android:textColor="@color/orange"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/stu_item_time_l"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:fontFamily="casual"
+            android:padding="2dp"
+            android:text="TextView"
+            android:textColor="@color/orange"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/stu_item_can_n_l"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:fontFamily="casual"
+            android:padding="2dp"
+            android:text="TextView"
+            android:textColor="@color/orange"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/stu_item_list_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:fontFamily="casual"
+            android:text="Order"
             android:textColor="@color/orange"
             android:textSize="18sp"
             android:textStyle="bold" />

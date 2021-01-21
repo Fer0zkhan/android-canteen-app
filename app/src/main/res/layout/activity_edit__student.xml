@@ -31,7 +31,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/search_student"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -41,10 +41,11 @@
                 android:hint="Search Student By ID"
                 android:inputType="textPersonName"
                 android:padding="5dp"
-                android:textColor="@color/orange" />
+                android:textColor="@color/orange"
+                android:textColorHint="@color/orange" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/student_search_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -61,7 +62,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button6"
+                    android:id="@+id/student_edit_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -69,10 +70,11 @@
                     android:fontFamily="casual"
                     android:padding="5dp"
                     android:text="Edit"
-                    android:textColor="@color/orange" />
+                    android:textColor="@color/orange"
+                    android:visibility="gone" />
 
                 <Button
-                    android:id="@+id/button5"
+                    android:id="@+id/delete_student_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -80,7 +82,8 @@
                     android:fontFamily="casual"
                     android:padding="5dp"
                     android:text="Delete"
-                    android:textColor="@color/orange" />
+                    android:textColor="@color/orange"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout
@@ -91,30 +94,22 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/student_id"
+                    android:id="@+id/student_e_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:ems="10"
                     android:fontFamily="casual"
-                    android:hint="Name"
+                    android:hint="Student ID"
                     android:inputType="textPersonName"
                     android:padding="5dp"
-                    android:textColor="@color/orange" />
+                    android:textColor="@color/orange"
+                    android:textColorHint="@color/orange" />
+
+
 
                 <EditText
-                    android:id="@+id/Student_uni_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:ems="10"
-                    android:fontFamily="casual"
-                    android:hint="Handler Name"
-                    android:inputType="textPersonName"
-                    android:padding="5dp"
-                    android:textColor="@color/orange" />
-                <EditText
-                    android:id="@+id/Student_uni_password"
+                    android:id="@+id/Student_e_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -123,7 +118,8 @@
                     android:hint="Password"
                     android:inputType="textPassword"
                     android:padding="5dp"
-                    android:textColor="@color/orange" />
+                    android:textColor="@color/orange"
+                    android:textColorHint="@color/orange" />
 
 
             </LinearLayout>
