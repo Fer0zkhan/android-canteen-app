@@ -40,6 +40,17 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <Button
+                android:id="@+id/student_profile"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="casual"
+                android:text="Student Profile"
+                android:textColor="@color/orange"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

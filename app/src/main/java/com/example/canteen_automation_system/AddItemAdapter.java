@@ -14,16 +14,13 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class AddItemAdapter extends ArrayAdapter {
-    //    ArrayList item_id_list = new ArrayList();
-//    ArrayList item_name_list = new ArrayList();
-//    ArrayList item_des_list = new ArrayList();
-//    ArrayList item_cost_list = new ArrayList();
-//    ArrayList item_time_list = new ArrayList();
     ArrayList<Item> arrayList = new ArrayList<Item>();
+    Activity context;
 
     public AddItemAdapter(@NonNull Activity context, int resource, ArrayList<Item> arrayList) {
         super(context, resource, arrayList);
         this.arrayList = arrayList;
+        this.context = context;
     }
 
     @NonNull

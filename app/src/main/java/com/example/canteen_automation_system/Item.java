@@ -7,6 +7,16 @@ public class Item {
     String item_cost_list;
     String item_time_list;
 
+    public String getCanteen_id() {
+        return canteen_id;
+    }
+
+    public void setCanteen_id(String canteen_id) {
+        this.canteen_id = canteen_id;
+    }
+
+    String canteen_id;
+
     public String getItem_can_id() {
         return item_can_id;
     }
@@ -17,14 +27,14 @@ public class Item {
 
     String item_can_id;
 
-    public Item(String item_id_list, String item_name_list, String item_des_list, String item_cost_list, String item_time_list, String item_can_name, String item_time_list1) {
+    public Item(String item_id_list, String item_name_list, String item_des_list, String item_cost_list, String item_time_list, String item_can_name, String canteen_id) {
         this.item_id_list = item_id_list;
         this.item_name_list = item_name_list;
         this.item_des_list = item_des_list;
         this.item_cost_list = item_cost_list;
         this.item_time_list = item_time_list;
         this.item_can_name = item_can_name;
-        this.item_time_list = item_time_list1;
+        this.canteen_id = canteen_id;
     }
 
     public Item() {

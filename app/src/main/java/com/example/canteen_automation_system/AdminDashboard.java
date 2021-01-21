@@ -8,8 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class AdminDashboard extends AppCompatActivity {
-    Button add_canteen,edit_can, edit_stu, view_can, stu_view, add_student,withdraw ,logout;
+    Button add_canteen, edit_can, edit_stu, view_can, stu_view, add_student, withdraw, logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,11 +82,17 @@ public class AdminDashboard extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminDashboard.this, MainActivity.class);
+                Toast.makeText(AdminDashboard.this, "Logout", Toast.LENGTH_SHORT).show();
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(AdminDashboard.this, AdminLogin.class);
                 startActivity(intent);
                 finish();
-                Toast.makeText(AdminDashboard.this, "Logout", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "Press Logout Button To logout First!", Toast.LENGTH_SHORT).show();
     }
 }

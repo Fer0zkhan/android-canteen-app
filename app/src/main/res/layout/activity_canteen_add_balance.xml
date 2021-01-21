@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView5"
@@ -31,7 +31,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName5"
+                android:id="@+id/can_add_bal_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -40,10 +40,11 @@
                 android:hint="Serach Student By ID"
                 android:inputType="textPersonName"
                 android:padding="5dp"
-                android:textColor="@color/orange" />
+                android:textColor="@color/orange"
+                android:textColorHint="@color/orange" />
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/can_add_bal_s_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -52,8 +53,22 @@
                 android:text="Search"
                 android:textColor="@color/orange" />
 
+
             <EditText
-                android:id="@+id/editTextTextPersonName7"
+                android:id="@+id/can_add_stu_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:fontFamily="casual"
+                android:hint="Student ID"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:textColor="@color/orange"
+                android:textColorHint="@color/orange" />
+
+            <EditText
+                android:id="@+id/can_add_stu_bal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -62,7 +77,8 @@
                 android:hint="Balance"
                 android:inputType="textPersonName"
                 android:padding="5dp"
-                android:textColor="@color/orange" />
+                android:textColor="@color/orange"
+                android:textColorHint="@color/orange" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -71,7 +87,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button10"
+                    android:id="@+id/can_add_w_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -82,7 +98,7 @@
                     android:textColor="@color/orange" />
 
                 <Button
-                    android:id="@+id/button9"
+                    android:id="@+id/can_add_s_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"

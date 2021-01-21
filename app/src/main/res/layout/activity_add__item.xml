@@ -41,7 +41,8 @@
                 android:hint="Food Name"
                 android:inputType="textPersonName"
                 android:padding="5dp"
-                android:textColor="@color/orange" />
+                android:textColor="@color/orange"
+                android:textColorHint="@color/orange" />
 
             <EditText
                 android:id="@+id/item_description"
@@ -53,7 +54,8 @@
                 android:hint="Description"
                 android:inputType="textPersonName"
                 android:padding="5dp"
-                android:textColor="@color/orange" />
+                android:textColor="@color/orange"
+                android:textColorHint="@color/orange" />
 
 
             <EditText
@@ -66,7 +68,8 @@
                 android:hint="Item Cost"
                 android:inputType="number"
                 android:padding="5dp"
-                android:textColor="@color/orange" />
+                android:textColor="@color/orange"
+                android:textColorHint="@color/orange" />
 
             <EditText
                 android:id="@+id/item_time"
@@ -76,12 +79,13 @@
                 android:ems="10"
                 android:fontFamily="casual"
                 android:hint="Time To Get Ready"
-                android:inputType="number"
+                android:inputType="textPersonName"
                 android:padding="5dp"
-                android:textColor="@color/orange" />
+                android:textColor="@color/orange"
+                android:textColorHint="@color/orange" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/canteen_add_item_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"

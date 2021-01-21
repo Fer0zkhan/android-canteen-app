@@ -23,26 +23,23 @@ public class MainActivity extends AppCompatActivity {
         canteen_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Canteen_Dashboard.class);
+                Intent intent = new Intent(MainActivity.this, Canteen_Login_page.class);
                 startActivity(intent);
-                finish();
             }
         });
 
         admin_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AdminDashboard.class);
+                Intent intent = new Intent(MainActivity.this, AdminLogin.class);
                 startActivity(intent);
-                finish();
             }
         });
         student_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Student_DashBoard.class);
+                Intent intent = new Intent(MainActivity.this, Student_login_page.class);
                 startActivity(intent);
-                finish();
             }
         });
     }

@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView4"
@@ -31,7 +31,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/search_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -41,10 +41,11 @@
                 android:hint="Search Item By ID"
                 android:inputType="textPersonName"
                 android:padding="5dp"
-                android:textColor="@color/orange" />
+                android:textColor="@color/orange"
+                android:textColorHint="@color/orange" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/item_s_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -61,7 +62,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button6"
+                    android:id="@+id/item_e_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -69,10 +70,11 @@
                     android:fontFamily="casual"
                     android:padding="5dp"
                     android:text="Edit"
-                    android:textColor="@color/orange" />
+                    android:textColor="@color/orange"
+                    android:visibility="gone" />
 
                 <Button
-                    android:id="@+id/button5"
+                    android:id="@+id/item_d_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -80,7 +82,8 @@
                     android:fontFamily="casual"
                     android:padding="5dp"
                     android:text="Delete"
-                    android:textColor="@color/orange" />
+                    android:textColor="@color/orange"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout
@@ -91,7 +94,7 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/item_name"
+                    android:id="@+id/item_e_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -100,10 +103,11 @@
                     android:hint="Food Name"
                     android:inputType="textPersonName"
                     android:padding="5dp"
-                    android:textColor="@color/orange" />
+                    android:textColor="@color/orange"
+                    android:textColorHint="@color/orange" />
 
                 <EditText
-                    android:id="@+id/item_description"
+                    android:id="@+id/item_e_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -112,10 +116,11 @@
                     android:hint="Description"
                     android:inputType="textPersonName"
                     android:padding="5dp"
-                    android:textColor="@color/orange" />
+                    android:textColor="@color/orange"
+                    android:textColorHint="@color/orange" />
 
                 <EditText
-                    android:id="@+id/item_cost"
+                    android:id="@+id/item_e_cost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -124,10 +129,11 @@
                     android:hint="Cost"
                     android:inputType="number"
                     android:padding="5dp"
-                    android:textColor="@color/orange" />
+                    android:textColor="@color/orange"
+                    android:textColorHint="@color/orange" />
 
                 <EditText
-                    android:id="@+id/item_time"
+                    android:id="@+id/item_e_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -136,8 +142,8 @@
                     android:hint="Time"
                     android:inputType="textPersonName"
                     android:padding="5dp"
-                    android:textColor="@color/orange" />
-
+                    android:textColor="@color/orange"
+                    android:textColorHint="@color/orange" />
 
 
             </LinearLayout>

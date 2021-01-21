@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView9"
@@ -31,7 +31,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName9"
+                android:id="@+id/stu_acc_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -41,11 +41,12 @@
                 android:inputType="textPersonName"
                 android:padding="5dp"
                 android:textColor="@color/orange"
+                android:textColorHint="@color/orange"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName10"
+                android:id="@+id/stu_add_id_acc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -55,11 +56,27 @@
                 android:inputType="textPersonName"
                 android:padding="5dp"
                 android:textColor="@color/orange"
+                android:textColorHint="@color/orange"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/stu_add_bal_acc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:ems="10"
+                android:fontFamily="casual"
+                android:hint="Enter Amount"
+                android:inputType="number"
+                android:padding="5dp"
+                android:textColor="@color/orange"
+                android:textColorHint="@color/orange"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/stu_acc_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"

@@ -14,23 +14,13 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class TransactionAdapter extends ArrayAdapter {
-    ArrayList tran_id = new ArrayList();
-    ArrayList tran_c_name = new ArrayList();
-    ArrayList tran_f_name = new ArrayList();
-    ArrayList tran_f_cost = new ArrayList();
-    ArrayList tran_s_id = new ArrayList();
-    public TransactionAdapter(@NonNull Activity context, int resource,ArrayList tran_id ,
-    ArrayList tran_c_name,
-    ArrayList tran_f_name,
-    ArrayList tran_f_cost ,
-    ArrayList tran_s_id) {
-        super(context, resource, tran_c_name);
+    ArrayList<Transaction> arrayList = new ArrayList<Transaction>();
+    Activity context;
 
-        this.tran_id = tran_id;
-        this.tran_c_name = tran_c_name;
-        this.tran_f_name = tran_f_name;
-        this.tran_f_cost = tran_f_cost;
-        this.tran_s_id = tran_s_id;
+    public TransactionAdapter(@NonNull Activity context, int resource, ArrayList<Transaction> arrayList) {
+        super(context, resource, arrayList);
+        this.arrayList = arrayList;
+        this.context = context;
     }
 
     @NonNull
@@ -49,11 +39,11 @@ public class TransactionAdapter extends ArrayAdapter {
         t_f_c = (TextView) view.findViewById(R.id.tran_food_cost);
         t_s_id = (TextView) view.findViewById(R.id.tran_s_id);
 
-        t_id.setText(tran_id.get(position).toString());
-        t_c_name.setText(tran_c_name.get(position).toString());
-        t_f_name.setText(tran_f_name.get(position).toString());
-        t_f_c.setText(tran_f_cost.get(position).toString());
-        t_s_id.setText(tran_s_id.get(position).toString());
+        t_id.setText(arrayList.get(position).getId());
+        t_c_name.setText(arrayList.get(position).getTransaction_canteen_name());
+        t_f_name.setText(arrayList.get(position).getTransaction_food_name());
+        t_f_c.setText(arrayList.get(position).getTransaction_cost());
+        t_s_id.setText(arrayList.get(position).getTransaction_student_id());
 
         return view;
     }
