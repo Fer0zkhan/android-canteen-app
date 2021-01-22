@@ -32,6 +32,7 @@ public class Student_DashBoard extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Student_DashBoard.this, Student_Profile.class);
                 intent.putExtra("stu_l_u_id", stu_u_id);
+                intent.putExtra("stu_l_id", stu_id);
                 startActivity(intent);
             }
         });
@@ -50,6 +51,7 @@ public class Student_DashBoard extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Student_DashBoard.this, Student_add_balance.class);
                 intent.putExtra("stu_l_u_id", stu_u_id);
+                intent.putExtra("stu_l_id", stu_id);
                 startActivity(intent);
             }
         });
@@ -58,6 +60,7 @@ public class Student_DashBoard extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Student_DashBoard.this, StuDent_Transaction_history.class);
                 intent.putExtra("stu_l_u_id", stu_u_id);
+                intent.putExtra("stu_l_id", stu_id);
                 startActivity(intent);
             }
         });

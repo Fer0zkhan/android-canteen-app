@@ -3,6 +3,7 @@ package com.example.canteen_automation_system;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -20,13 +21,16 @@ public class Canteen_add_balance extends AppCompatActivity {
     EditText stu_search, stu_id, stu_bal;
     Button stu_withdraw, stu_add, stu_search_btn;
     DatabaseReference databaseReference;
-    String uniqueID;
+    String id, name, uniqueID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_canteen_add_balance);
         databaseReference = FirebaseDatabase.getInstance().getReference("Student");
+
+        id = getIntent().getStringExtra("c_login_id");
+        name = getIntent().getStringExtra("c_name");
 
         stu_search = findViewById(R.id.can_add_bal_search);
         stu_id = findViewById(R.id.can_add_stu_id);
@@ -45,6 +49,11 @@ public class Canteen_add_balance extends AppCompatActivity {
                     if (!TextUtils.isEmpty(stu_bal.getText().toString().trim()) && !TextUtils.isEmpty(stu_id.getText().toString().trim())) {
                         databaseReference.child(uniqueID).child("student_balance").setValue("0");
                         Toast.makeText(Canteen_add_balance.this, "Withdraw Bal Successfully", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Canteen_add_balance.this, Canteen_Dashboard.class);
+                        intent.putExtra("Canteen_id", id);
+                        intent.putExtra("canteen_name", name);
+                        startActivity(intent);
+                        finish();
                     } else {
                         Toast.makeText(Canteen_add_balance.this, "Student Fields Are Missing!", Toast.LENGTH_SHORT).show();
                     }
@@ -63,6 +72,11 @@ public class Canteen_add_balance extends AppCompatActivity {
                     if (!TextUtils.isEmpty(stu_bal.getText().toString().trim()) && !TextUtils.isEmpty(stu_id.getText().toString().trim())) {
                         databaseReference.child(uniqueID).child("student_balance").setValue(stu_bal.getText().toString());
                         Toast.makeText(Canteen_add_balance.this, "Add Bal Successfully", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Canteen_add_balance.this, Canteen_Dashboard.class);
+                        intent.putExtra("Canteen_id", id);
+                        intent.putExtra("canteen_name", name);
+                        startActivity(intent);
+                        finish();
 
                     } else {
                         Toast.makeText(Canteen_add_balance.this, "Student Fields Are Missing!", Toast.LENGTH_SHORT).show();
@@ -105,5 +119,14 @@ public class Canteen_add_balance extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Canteen_add_balance.this, Canteen_Dashboard.class);
+        intent.putExtra("Canteen_id", id);
+        intent.putExtra("canteen_name", name);
+        startActivity(intent);
+        finish();
     }
 }

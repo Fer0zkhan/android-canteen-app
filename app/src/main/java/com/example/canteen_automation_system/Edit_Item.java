@@ -3,6 +3,7 @@ package com.example.canteen_automation_system;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -20,6 +21,7 @@ public class Edit_Item extends AppCompatActivity {
     EditText s_item, i_name, i_des, i_cost, i_time;
     Button s_btn, e_btn, d_btn;
     DatabaseReference databaseReference;
+    String id, name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,9 @@ public class Edit_Item extends AppCompatActivity {
         setContentView(R.layout.activity_edit__item);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Item");
+
+        id = getIntent().getStringExtra("c_login_id");
+        name = getIntent().getStringExtra("c_name");
 
         s_item = findViewById(R.id.search_item);
 
@@ -53,6 +58,11 @@ public class Edit_Item extends AppCompatActivity {
                     e_btn.setVisibility(View.GONE);
                     d_btn.setVisibility(View.GONE);
                     Toast.makeText(Edit_Item.this, "Item Delete Successfully!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Edit_Item.this, Canteen_Dashboard.class);
+                    intent.putExtra("Canteen_id", id);
+                    intent.putExtra("canteen_name", name);
+                    startActivity(intent);
+                    finish();
                 }
             }
         });
@@ -81,6 +91,11 @@ public class Edit_Item extends AppCompatActivity {
                     Toast.makeText(Edit_Item.this, "Field Are Missing!", Toast.LENGTH_SHORT).show();
                 }
                 Toast.makeText(Edit_Item.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Edit_Item.this, Canteen_Dashboard.class);
+                intent.putExtra("Canteen_id", id);
+                intent.putExtra("canteen_name", name);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -118,5 +133,14 @@ public class Edit_Item extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Edit_Item.this, Canteen_Dashboard.class);
+        intent.putExtra("Canteen_id", id);
+        intent.putExtra("canteen_name", name);
+        startActivity(intent);
+        finish();
     }
 }

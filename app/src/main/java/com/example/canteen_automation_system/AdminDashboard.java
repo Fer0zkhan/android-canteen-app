@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class AdminDashboard extends AppCompatActivity {
     Button add_canteen, edit_can, edit_stu, view_can, stu_view, add_student, withdraw, logout;
@@ -26,7 +27,6 @@ public class AdminDashboard extends AppCompatActivity {
         edit_can = findViewById(R.id.edit_can);
         edit_stu = findViewById(R.id.edit_stu);
         withdraw = findViewById(R.id.add_balnce);
-
 
         withdraw.setOnClickListener(new View.OnClickListener() {
             @Override

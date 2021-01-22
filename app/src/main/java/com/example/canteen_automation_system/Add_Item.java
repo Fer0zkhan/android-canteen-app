@@ -2,6 +2,7 @@ package com.example.canteen_automation_system;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -57,6 +58,11 @@ public class Add_Item extends AppCompatActivity {
             cost.setText("");
             time.setText("");
             Toast.makeText(this, "Add Item Successfully", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Add_Item.this, Canteen_Dashboard.class);
+            intent.putExtra("Canteen_id", id);
+            intent.putExtra("canteen_name", name);
+            startActivity(intent);
+            finish();
         } else {
             Toast.makeText(this, "Some Fields Are Missing!", Toast.LENGTH_SHORT).show();
         }

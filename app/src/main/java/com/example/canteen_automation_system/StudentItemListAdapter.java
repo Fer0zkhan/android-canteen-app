@@ -2,6 +2,7 @@ package com.example.canteen_automation_system;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,10 +45,6 @@ public class StudentItemListAdapter extends ArrayAdapter {
 
         TextView i_id, i_name, i_des, i_cost, i_time, i_can_name;
         Button btn;
-        DatabaseReference databaseReference, studentDatabase;
-        databaseReference = FirebaseDatabase.getInstance().getReference("Order");
-        studentDatabase = FirebaseDatabase.getInstance().getReference("Student");
-
 
         i_name = (TextView) view.findViewById(R.id.stu_item_name_l);
         i_des = (TextView) view.findViewById(R.id.stu_item_list_dis);
@@ -65,31 +62,17 @@ public class StudentItemListAdapter extends ArrayAdapter {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                studentDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot data : snapshot.getChildren()) {
-                            Student student = data.getValue(Student.class);
-                            int student_cost = Integer.parseInt(student.student_balance);
-                            int actual_cost = Integer.parseInt(arrayList.get(position).item_cost_list);
-                            if (student_cost < actual_cost) {
-                                Toast.makeText(context, "Your Balance is low to order!", Toast.LENGTH_SHORT).show();
-                            } else {
-                                String id = databaseReference.push().getKey();
-                                Order order = new Order(id, arrayList.get(position).getItem_name_list(), arrayList.get(position).getItem_cost_list(), arrayList.get(position).getItem_can_name(), arrayList.get(position).canteen_id, stu_id, stu_u_id);
-                                databaseReference.child(id).setValue(order);
-                                int result_cost = student_cost - actual_cost;
-                                studentDatabase.child(stu_u_id).child("student_balance").setValue(String.valueOf(result_cost));
-                                Toast.makeText(context, "Place Order Successfully!", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+                Intent intent = new Intent(getContext(), Student_Order_Item_select.class);
+                intent.putExtra("item_name", arrayList.get(position).item_name_list);
+                intent.putExtra("item_cost", arrayList.get(position).item_cost_list);
+                intent.putExtra("item_des", arrayList.get(position).item_des_list);
+                intent.putExtra("item_time", arrayList.get(position).item_time_list);
+                intent.putExtra("item_can_name", arrayList.get(position).item_can_name);
+                intent.putExtra("item_can_id", arrayList.get(position).item_can_id);
+                intent.putExtra("item_stu_id", stu_id);
+                intent.putExtra("item_stu_u_id", stu_u_id);
+                getContext().startActivity(intent);
+                context.finish();
             }
         });
 

@@ -3,6 +3,7 @@ package com.example.canteen_automation_system;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -19,7 +20,7 @@ public class View_Item extends AppCompatActivity {
     ListView listView;
     ArrayList<Item> arrayList = new ArrayList<Item>();
     DatabaseReference databaseReference;
-    String id;
+    String id, name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class View_Item extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("Item");
         listView = findViewById(R.id.item_listView);
         id = getIntent().getStringExtra("c_login_id");
+        name = getIntent().getStringExtra("c_name");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -49,5 +51,14 @@ public class View_Item extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(View_Item.this, Canteen_Dashboard.class);
+        intent.putExtra("Canteen_id", id);
+        intent.putExtra("canteen_name", name);
+        startActivity(intent);
+        finish();
     }
 }

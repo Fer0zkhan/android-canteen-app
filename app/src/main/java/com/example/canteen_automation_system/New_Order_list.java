@@ -20,7 +20,7 @@ public class New_Order_list extends AppCompatActivity {
     ListView listView;
     ArrayList<Order> arrayList = new ArrayList<Order>();
     DatabaseReference databaseReference;
-    String u_id;
+    String id, name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,20 +29,21 @@ public class New_Order_list extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Order");
         listView = findViewById(R.id.order_listview);
-        u_id = getIntent().getStringExtra("c_login_id");
+
+        id = getIntent().getStringExtra("c_login_id");
+        name = getIntent().getStringExtra("c_name");
+
+        Toast.makeText(this, id + name, Toast.LENGTH_SHORT).show();
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot data : snapshot.getChildren()) {
                     Order order = data.getValue(Order.class);
-                    if (u_id.equalsIgnoreCase(order.order_canteen_id)) {
+                    if (name.equalsIgnoreCase(order.getOrder_canteen_name()) || id.equalsIgnoreCase(order.getOrder_canteen_id())) {
                         arrayList.add(order);
                         Order_listAdapter order_listAdapter = new Order_listAdapter(New_Order_list.this, R.layout.order_list_row, arrayList);
                         listView.setAdapter(order_listAdapter);
-                    } else {
-                        Toast.makeText(New_Order_list.this, "No Order Place by any student!", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(New_Order_list.this, Canteen_Dashboard.class));
                     }
                 }
             }
@@ -54,5 +55,14 @@ public class New_Order_list extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(New_Order_list.this, Canteen_Dashboard.class);
+        intent.putExtra("Canteen_id", id);
+        intent.putExtra("canteen_name", name);
+        startActivity(intent);
+        finish();
     }
 }

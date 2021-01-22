@@ -62,7 +62,11 @@ public class Order_listAdapter extends ArrayAdapter {
                 Transaction transaction = new Transaction(id, arrayList.get(position).order_id, arrayList.get(position).order_canteen_id, arrayList.get(position).order_canteen_name, arrayList.get(position).order_food_name, arrayList.get(position).order_food_cost, arrayList.get(position).order_student_unique_id);
                 databaseReference.child(id).setValue(transaction);
                 orderDatabase.child(arrayList.get(position).order_id).removeValue();
-                getContext().startActivity(new Intent(getContext(), Canteen_Dashboard.class));
+                Intent intent = new Intent(getContext(), Canteen_Dashboard.class);
+                intent.putExtra("Canteen_id", arrayList.get(position).order_canteen_id);
+                intent.putExtra("canteen_name", arrayList.get(position).order_canteen_name);
+                getContext().startActivity(intent);
+                content.finish();
             }
         });
 

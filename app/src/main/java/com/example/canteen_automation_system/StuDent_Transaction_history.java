@@ -3,6 +3,7 @@ package com.example.canteen_automation_system;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -19,7 +20,7 @@ public class StuDent_Transaction_history extends AppCompatActivity {
     ListView listView;
     ArrayList<Transaction> arrayList = new ArrayList<Transaction>();
     DatabaseReference databaseReference;
-    String u_id;
+    String u_id, stuid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class StuDent_Transaction_history extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("Transaction");
         listView = findViewById(R.id.stu_tran_his);
         u_id = getIntent().getStringExtra("stu_l_u_id");
+        stuid = getIntent().getStringExtra("stu_l_id");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -48,7 +50,14 @@ public class StuDent_Transaction_history extends AppCompatActivity {
 
             }
         });
+    }
 
-
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(StuDent_Transaction_history.this, Student_DashBoard.class);
+        intent.putExtra("stu_l_id", u_id);
+        intent.putExtra("stu_l_u_id", stuid);
+        startActivity(intent);
+        finish();
     }
 }

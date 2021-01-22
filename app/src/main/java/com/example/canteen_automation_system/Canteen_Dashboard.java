@@ -42,6 +42,7 @@ public class Canteen_Dashboard extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Canteen_Dashboard.this, Canteen_Transaction.class);
                 intent.putExtra("c_login_id", id);
+                intent.putExtra("c_name", name);
                 startActivity(intent);
             }
         });
@@ -49,6 +50,8 @@ public class Canteen_Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Canteen_Dashboard.this, Canteen_add_balance.class);
+                intent.putExtra("c_login_id", id);
+                intent.putExtra("c_name", name);
                 startActivity(intent);
             }
         });
@@ -57,6 +60,7 @@ public class Canteen_Dashboard extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Canteen_Dashboard.this, New_Order_list.class);
                 intent.putExtra("c_login_id", id);
+                intent.putExtra("c_name", name);
                 startActivity(intent);
             }
         });
@@ -64,6 +68,8 @@ public class Canteen_Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Canteen_Dashboard.this, Edit_Item.class);
+                intent.putExtra("c_login_id", id);
+                intent.putExtra("c_name", name);
                 startActivity(intent);
             }
         });
@@ -72,6 +78,7 @@ public class Canteen_Dashboard extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Canteen_Dashboard.this, View_Item.class);
                 intent.putExtra("c_login_id", id);
+                intent.putExtra("c_name", name);
                 startActivity(intent);
             }
         });

@@ -3,6 +3,7 @@ package com.example.canteen_automation_system;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
@@ -19,7 +20,7 @@ public class Canteen_Transaction extends AppCompatActivity {
     ListView listView;
     ArrayList<Transaction> arrayList = new ArrayList<Transaction>();
     DatabaseReference databaseReference;
-    String u_id;
+    String id, name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,8 @@ public class Canteen_Transaction extends AppCompatActivity {
         setContentView(R.layout.activity_canteen__transaction);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Transaction");
-        u_id = getIntent().getStringExtra("c_login_id");
+        id = getIntent().getStringExtra("c_login_id");
+        name = getIntent().getStringExtra("c_name");
         listView = findViewById(R.id.transaction_listview);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -35,7 +37,7 @@ public class Canteen_Transaction extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot data : snapshot.getChildren()) {
                     Transaction transaction = data.getValue(Transaction.class);
-                    if (u_id.equalsIgnoreCase(transaction.transaction_canteen_id)) {
+                    if (id.equalsIgnoreCase(transaction.transaction_canteen_id)) {
                         arrayList.add(transaction);
                         TransactionAdapter transactionAdapter = new TransactionAdapter(Canteen_Transaction.this, R.layout.transaction_list_row, arrayList);
                         listView.setAdapter(transactionAdapter);
@@ -48,7 +50,15 @@ public class Canteen_Transaction extends AppCompatActivity {
 
             }
         });
-
-
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Canteen_Transaction.this, Canteen_Dashboard.class);
+        intent.putExtra("Canteen_id", id);
+        intent.putExtra("canteen_name", name);
+        startActivity(intent);
+        finish();
+    }
+
 }

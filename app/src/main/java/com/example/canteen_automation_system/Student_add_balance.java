@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 public class Student_add_balance extends AppCompatActivity {
     EditText acc, id, amount;
     Button acc_btn;
-    String u_id;
+    String u_id, stuid;
     DatabaseReference databaseReference;
 
     @Override
@@ -30,6 +30,7 @@ public class Student_add_balance extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Student");
         u_id = getIntent().getStringExtra("stu_l_u_id");
+        stuid = getIntent().getStringExtra("stu_l_id");
         acc = findViewById(R.id.stu_acc_num);
         id = findViewById(R.id.stu_add_id_acc);
         amount = findViewById(R.id.stu_add_bal_acc);
@@ -51,7 +52,11 @@ public class Student_add_balance extends AppCompatActivity {
                                 int result = pre_am + add_am;
                                 databaseReference.child(u_id).child("student_balance").setValue(String.valueOf(result));
                                 Toast.makeText(Student_add_balance.this, "Add Amount Successfully", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Student_add_balance.this, Student_DashBoard.class));
+                                Intent intent = new Intent(Student_add_balance.this, Student_DashBoard.class);
+                                intent.putExtra("stu_l_u_id", u_id);
+                                intent.putExtra("stu_l_id", stuid);
+                                startActivity(intent);
+                                finish();
                             } else {
                                 Toast.makeText(Student_add_balance.this, "Some Fields Are Missing!", Toast.LENGTH_SHORT).show();
                             }
@@ -65,5 +70,14 @@ public class Student_add_balance extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Student_add_balance.this, Student_DashBoard.class);
+        intent.putExtra("stu_l_id", stuid);
+        intent.putExtra("stu_l_u_id", u_id);
+        startActivity(intent);
+        finish();
     }
 }

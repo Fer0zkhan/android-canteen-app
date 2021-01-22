@@ -51,7 +51,15 @@ public class Student_View_Place_order extends AppCompatActivity {
                 Toast.makeText(Student_View_Place_order.this, "Database Error!", Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Student_View_Place_order.this, Student_DashBoard.class);
+        intent.putExtra("stu_l_id", stu_id);
+        intent.putExtra("stu_l_u_id", stu_u_id);
+        startActivity(intent);
+        finish();
     }
 }

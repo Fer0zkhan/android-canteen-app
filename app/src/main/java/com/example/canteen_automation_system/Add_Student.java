@@ -1,5 +1,6 @@
 package com.example.canteen_automation_system;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -9,6 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -50,9 +56,10 @@ public class Add_Student extends AppCompatActivity {
             stu_id.setText("");
             pass.setText("");
             bal.setText("");
-            Toast.makeText(this, "Student Add Successfully!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Add_Student.this, "Student Register Successfully", Toast.LENGTH_SHORT).show();
+
         } else {
-            Toast.makeText(this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
         }
     }
 }
