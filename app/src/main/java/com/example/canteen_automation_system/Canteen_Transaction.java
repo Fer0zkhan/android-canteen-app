@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,12 +33,13 @@ public class Canteen_Transaction extends AppCompatActivity {
         name = getIntent().getStringExtra("c_name");
         listView = findViewById(R.id.transaction_listview);
 
+//        Toast.makeText(this, id + name, Toast.LENGTH_SHORT).show();
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot data : snapshot.getChildren()) {
                     Transaction transaction = data.getValue(Transaction.class);
-                    if (id.equalsIgnoreCase(transaction.transaction_canteen_id)) {
+                    if (name.equalsIgnoreCase(transaction.getTransaction_canteen_name()) || id.equalsIgnoreCase(transaction.getTransaction_canteen_id())) {
                         arrayList.add(transaction);
                         TransactionAdapter transactionAdapter = new TransactionAdapter(Canteen_Transaction.this, R.layout.transaction_list_row, arrayList);
                         listView.setAdapter(transactionAdapter);

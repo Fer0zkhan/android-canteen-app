@@ -45,7 +45,7 @@ public class Canteen_Login_page extends AppCompatActivity {
                             String c_pass = pass.getText().toString().trim();
                             if (!TextUtils.isEmpty(c_id) && !TextUtils.isEmpty(c_pass)) {
                                 if (c_id.equalsIgnoreCase(canteen.canteen_name) && c_pass.equalsIgnoreCase(canteen.canteen_password)) {
-//                                    Toast.makeText(Canteen_Login_page.this, , Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Canteen_Login_page.this, "Login!", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(Canteen_Login_page.this, Canteen_Dashboard.class);
                                     intent.putExtra("Canteen_id", canteen.canteen_id);
                                     intent.putExtra("canteen_name", canteen.canteen_name);

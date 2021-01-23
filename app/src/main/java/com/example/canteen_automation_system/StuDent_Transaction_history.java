@@ -37,7 +37,7 @@ public class StuDent_Transaction_history extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot data : snapshot.getChildren()) {
                     Transaction transaction = data.getValue(Transaction.class);
-                    if (u_id.equalsIgnoreCase(transaction.transaction_student_id)) {
+                    if (u_id.equalsIgnoreCase(transaction.getTransaction_student_id())) {
                         arrayList.add(transaction);
                         TransactionAdapter transactionAdapter = new TransactionAdapter(StuDent_Transaction_history.this, R.layout.transaction_list_row, arrayList);
                         listView.setAdapter(transactionAdapter);

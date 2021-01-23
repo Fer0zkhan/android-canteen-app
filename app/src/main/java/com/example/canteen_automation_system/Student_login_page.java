@@ -41,31 +41,23 @@ public class Student_login_page extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String student_id = stu_id.getText().toString().trim();
                         String password = pass.getText().toString().trim();
-                       // Student student = snapshot.getValue(Student.class);
-                        if(snapshot.exists())
-                        {
-                            for(DataSnapshot studentsnapshot : snapshot.getChildren()) {
-
-                                Student student=studentsnapshot.getValue(Student.class);
-
-                                if (!TextUtils.isEmpty(student_id) && !TextUtils.isEmpty(password)) {
-                                    if (student_id.equalsIgnoreCase(student.student_id) && password.equalsIgnoreCase(student.student_password)) {
-
-                                        Toast.makeText(Student_login_page.this, "Login!", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(Student_login_page.this, Student_DashBoard.class);
-                                        intent.putExtra("stu_l_id", student.student_id);
-                                        intent.putExtra("stu_l_u_id", student.id);
-                                        startActivity(intent);
-                                        finish();
-
-                                    } else {
-                                        Toast.makeText(Student_login_page.this, "Not Found Or Incorrect Password!", Toast.LENGTH_SHORT).show();
-                                    }
-
+                        // Student student = snapshot.getValue(Student.class);
+                        for (DataSnapshot data : snapshot.getChildren()) {
+                            Student student = data.getValue(Student.class);
+                            if (!TextUtils.isEmpty(student_id) && !TextUtils.isEmpty(password)) {
+                                if (student_id.equalsIgnoreCase(student.student_id) && password.equalsIgnoreCase(student.student_password)) {
+                                    Toast.makeText(Student_login_page.this, "Login!", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(Student_login_page.this, Student_DashBoard.class);
+                                    intent.putExtra("stu_l_id", student.student_id);
+                                    intent.putExtra("stu_l_u_id", student.id);
+                                    startActivity(intent);
+                                    finish();
+                                } else {
+                                    Toast.makeText(Student_login_page.this, "Not Found Or Incorrect Password!", Toast.LENGTH_SHORT).show();
                                 }
+                            } else {
+                                Toast.makeText(Student_login_page.this, "Some Fields Are Missing!", Toast.LENGTH_SHORT).show();
                             }
-                        } else {
-                            Toast.makeText(Student_login_page.this, "Some Fields Are Missing!", Toast.LENGTH_SHORT).show();
                         }
                     }
 

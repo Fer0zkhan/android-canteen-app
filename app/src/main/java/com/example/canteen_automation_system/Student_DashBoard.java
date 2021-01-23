@@ -67,7 +67,7 @@ public class Student_DashBoard extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Student_DashBoard.this, Student_login_page.class);
+                Intent intent = new Intent(Student_DashBoard.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }

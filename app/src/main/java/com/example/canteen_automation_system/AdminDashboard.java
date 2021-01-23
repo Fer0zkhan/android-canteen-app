@@ -84,7 +84,7 @@ public class AdminDashboard extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(AdminDashboard.this, "Logout", Toast.LENGTH_SHORT).show();
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(AdminDashboard.this, AdminLogin.class);
+                Intent intent = new Intent(AdminDashboard.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }

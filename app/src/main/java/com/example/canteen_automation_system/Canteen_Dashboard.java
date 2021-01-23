@@ -32,7 +32,7 @@ public class Canteen_Dashboard extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Canteen_Dashboard.this, Canteen_Login_page.class);
+                Intent intent = new Intent(Canteen_Dashboard.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
